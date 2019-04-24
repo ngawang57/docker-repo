@@ -1,9 +1,8 @@
 FROM centos:latest
-WORKDIR /var
-EXPOSE 80
-VOLUME /var/www/html
+MAINTAINER DevOpsTech
+
 RUN yum install -y httpd git && git clone https://github.com/ngawang57/docker-repo.git /var/www/html/
 
 EXPOSE 80
 
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+ENTRYPOINT ["/usr/sbin/httpd", "-D", "FOREGROUND"]
